@@ -87,7 +87,7 @@ const UseCases = () => {
                 <div className="bg-light-red p-6 rounded-2xl">
                   <h4 className="text-lg font-semibold text-dark-gray mb-3">お客様の声</h4>
                   <p className="text-gray-700 italic">
-                    "{useCases[currentSlide].testimonial}"
+                    &ldquo;{useCases[currentSlide].testimonial}&rdquo;
                   </p>
                 </div>
               </div>
