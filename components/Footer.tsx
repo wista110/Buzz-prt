@@ -5,9 +5,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           {/* ロゴ・会社情報 */}
           <div className="col-span-2">
-            <div className="text-2xl font-bold text-primary-red mb-4">
-              カリトルくん
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="BUZZ PARTNERS" 
+              className="h-8 w-auto mb-4"
+            />
             <p className="text-gray-300 mb-6 leading-relaxed">
               商談創出に特化した営業代行サービス。
               <br />

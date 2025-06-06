@@ -51,7 +51,7 @@ const Pricing = () => {
     <section id="pricing" className="bg-light-gray section-padding">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-dark-gray mb-6">
+          <h2 className="section-title">
             ご利用料金
           </h2>
           <p className="text-xl text-gray-600">

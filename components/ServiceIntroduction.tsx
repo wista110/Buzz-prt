@@ -1,10 +1,11 @@
 const ServiceIntroduction = () => {
   return (
-    <section id="features" className="bg-white section-padding">
+    <section id="features" className="bg-light-gray section-padding">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-dark-gray mb-6">
-            そもそも<span className="text-primary-red">カリトルくん</span>とは
+          <h2 className="section-title text-4xl font-bold text-dark-gray mb-6">
+            そもそも<br/>
+            <span className="text-primary">Buzz Partners</span>とは
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             商談創出に特化した営業代行サービスです。

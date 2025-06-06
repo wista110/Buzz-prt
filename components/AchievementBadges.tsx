@@ -1,22 +1,23 @@
 const AchievementBadges = () => {
   const badges = [
-    { title: "導入企業数", value: "300+", subtitle: "社" },
-    { title: "商談成功率", value: "91%", subtitle: "継続中" },
-    { title: "月間アポ数", value: "1,200+", subtitle: "件" },
+    { title: "導入企業数", value: "157社", subtitle: "" },
+    { title: "月間平均再生率", value: "255万", subtitle: "(1アカウント)" },
+    { title: "クライアント継続率", value: "88.9%", subtitle: "" },
   ]
 
   return (
     <section className="bg-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-dark-gray mb-4">
-            圧倒的な実績でお客様に選ばれています
+          <h2 className="section-title text-3xl font-bold text-dark-gray mb-4">
+            圧倒的な実績で<br/>
+            お客様に選ばれています
           </h2>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
           {badges.map((badge, index) => (
-            <div key={index} className="text-center p-8 bg-light-gray rounded-2xl">
+            <div key={index} className="card-outline text-center p-8 bg-light-gray rounded-2xl">
               <div className="text-5xl font-bold text-primary-red mb-2">
                 {badge.value}
               </div>

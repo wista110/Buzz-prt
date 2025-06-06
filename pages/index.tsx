@@ -2,15 +2,11 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import HeroSection from '../components/HeroSection'
 import AchievementBadges from '../components/AchievementBadges'
+import UseCases from '../components/UseCases'
 import PainPoints from '../components/PainPoints'
 import ServiceIntroduction from '../components/ServiceIntroduction'
 import Strengths from '../components/Strengths'
-import ServiceScope from '../components/ServiceScope'
-import UseCases from '../components/UseCases'
-import WhyEffective from '../components/WhyEffective'
 import Pricing from '../components/Pricing'
-import ProcessFlow from '../components/ProcessFlow'
-import FAQ from '../components/FAQ'
 import ContactForm from '../components/ContactForm'
 import Footer from '../components/Footer'
 
@@ -18,19 +14,24 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>カリトルくん - 商談創出に特化した営業代行サービス</title>
+        <title>Buzz Partners - 成果にこだわったSNS運用をサポートします</title>
         <meta 
           name="description" 
-          content="商談創出に特化した営業代行サービス「カリトルくん」。月間30〜50件の質の高いアポイントメントで、お客様のカレンダーを商談で埋めつくします。91%の高い成約率と300社以上の実績。" 
+          content="Buzz Partners"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="keywords" content="営業代行,アポイント獲得,商談創出,テレアポ,営業アウトソーシング" />
-        <meta property="og:title" content="カリトルくん - 商談創出に特化した営業代行サービス" />
-        <meta property="og:description" content="91%の高い成約率で質の高いアポイントメントを提供。300社以上の実績を持つ営業代行サービス。" />
+        <meta name="keywords" content="SNS代行,アポイント獲得,商談創出,テレアポ,営業アウトソーシング,マーケティング,マーケティング代行,マーケティングアウトソーシング" />
+        <meta property="og:title" content="Buzz Partners - 成果にこだわったSNS運用をサポートします" />
+        <meta property="og:description" content="あの会社、あのお店、あのサービス、を一緒に育てます" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://karitoru-kun.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="icon" href="/favicon.ico" />
+        
+        {/* Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
         
         {/* 構造化データ */}
         <script
@@ -85,15 +86,11 @@ export default function Home() {
         <Header />
         <HeroSection />
         <AchievementBadges />
+        <UseCases />
         <PainPoints />
         <ServiceIntroduction />
         <Strengths />
-        <ServiceScope />
-        <UseCases />
-        <WhyEffective />
         <Pricing />
-        <ProcessFlow />
-        <FAQ />
         <ContactForm />
         <Footer />
       </main>

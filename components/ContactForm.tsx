@@ -31,7 +31,7 @@ const ContactForm = () => {
     <section id="contact" className="bg-white section-padding">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-dark-gray mb-6">
+          <h2 className="section-title text-4xl font-bold text-dark-gray mb-6">
             お問い合わせ
           </h2>
           <p className="text-xl text-gray-600">
@@ -39,60 +39,7 @@ const ContactForm = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* 左側：お問い合わせ情報 */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold text-dark-gray mb-6">
-                お気軽にご相談ください
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <div className="bg-primary-red text-white w-10 h-10 rounded-full flex items-center justify-center">
-                    📞
-                  </div>
-                  <div>
-                    <div className="font-semibold text-dark-gray">お電話でのお問い合わせ</div>
-                    <div className="text-primary-red font-bold text-lg">03-1234-5678</div>
-                    <div className="text-gray-600 text-sm">受付時間：平日 9:00〜18:00</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="bg-primary-red text-white w-10 h-10 rounded-full flex items-center justify-center">
-                    📧
-                  </div>
-                  <div>
-                    <div className="font-semibold text-dark-gray">メールでのお問い合わせ</div>
-                    <div className="text-primary-red font-bold">contact@karitoru-kun.com</div>
-                    <div className="text-gray-600 text-sm">24時間以内に返信いたします</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-light-red p-6 rounded-2xl">
-              <h4 className="font-bold text-dark-gray mb-3">無料相談で分かること</h4>
-              <ul className="space-y-2 text-gray-700">
-                <li className="flex items-center">
-                  <span className="text-primary-red mr-2">✓</span>
-                  お客様の課題に最適なアプローチ手法
-                </li>
-                <li className="flex items-center">
-                  <span className="text-primary-red mr-2">✓</span>
-                  想定される月間アポイント数
-                </li>
-                <li className="flex items-center">
-                  <span className="text-primary-red mr-2">✓</span>
-                  具体的な料金プランのご提案
-                </li>
-                <li className="flex items-center">
-                  <span className="text-primary-red mr-2">✓</span>
-                  導入までのスケジュール
-                </li>
-              </ul>
-            </div>
-          </div>
+        
 
           {/* 右側：お問い合わせフォーム */}
           <div className="bg-light-gray p-8 rounded-2xl">
@@ -231,7 +178,7 @@ const ContactForm = () => {
           <a href="#" className="text-primary-red hover:underline">プライバシーポリシー</a>
           をご確認ください。
         </div>
-      </div>
+
     </section>
   )
 }
