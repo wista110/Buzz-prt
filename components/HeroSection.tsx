@@ -1,38 +1,41 @@
+import { useLoading } from '../contexts/LoadingContext'
+
 const HeroSection = () => {
+  const { isLoading } = useLoading()
+
   return (
     <section 
-      className="pt-24 pb-16 bg-cover bg-center bg-no-repeat"
+      className="pt-24 pb-16 lg:pt-32 lg:pb-24 bg-cover bg-center bg-no-repeat min-h-screen lg:min-h-[calc(100vh-80px)]"
       style={{
         backgroundImage: 'url(/bg-shabon.png)'
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="grid lg:grid-cols-2 items-center h-full lg:min-h-[calc(100vh-200px)]">
           {/* 左側: テキストコンテンツ */}
-          <div className="space-y-8">
+          <div className="space-y-8 lg:space-y-12">
             {/* メインタイトル */}
-            <div className="space-y-4">
-              <div className="flex flex-col gap-2">
-                <p className="text-black text-[40px] leading-none select-none text-left font-montserrat font-bold italic">
+            <div className="space-y-4 lg:space-y-6">
+              <div className="flex flex-col gap-2 lg:gap-4">
+                <p className="text-black text-[40px] lg:text-[48px] xl:text-[56px] leading-none select-none text-left font-montserrat font-bold italic">
                     「もっと、
                 </p>
                 <img
                    src="/hero-copy3.png"
                    alt="惹きつける"
-                   className="
+                   className={`
                       inline-block
-                      w-[240px]
-                      h-[60px]
+                      w-[320px] lg:w-[380px] xl:w-[420px]
+                      h-[80px] lg:h-[95px] xl:h-[105px]
                       mx-auto
-                      animate-shake
-                      animation-delay-2s
-                   "
+                      ${!isLoading ? 'animate-shake animation-delay-[2s]' : ''}
+                   `}
                 />
-                <p className="text-black text-[40px] leading-none select-none text-right font-montserrat font-bold italic">
+                <p className="text-black text-[40px] lg:text-[48px] xl:text-[56px] leading-none select-none text-right font-montserrat font-bold italic">
                   コンテンツへ」
                 </p>
               </div>
-              <p className=" text-xl text-black leading-relaxed">
+              <p className="text-xl lg:text-2xl xl:text-3xl text-black leading-relaxed lg:leading-relaxed xl:leading-relaxed">
                   企画、撮影から編集まですべて
                   <br/>
                 <span className="text-highlight font-bold">
@@ -59,9 +62,9 @@ const HeroSection = () => {
             </div> */}
 
             {/* CTAボタン */}
-            <div className="w-full flex justify-center py-8">
+            <div className="w-full flex justify-center py-8 lg:py-12">
               <div className="flex flex-col sm:flex-row gap-4 max-w-md lg:max-w-none">
-                <a href="#contact" className="btn-primary text-center flex-1 sm:flex-initial sm:min-w-[160px]">
+                <a href="#contact" className="btn-primary text-center flex-1 sm:flex-initial sm:min-w-[160px] lg:min-w-[200px] lg:text-lg lg:py-4">
                   無料相談する
                 </a>
               </div>
@@ -69,33 +72,15 @@ const HeroSection = () => {
           </div>
 
           {/* 右側: イラスト */}
-          <div className="relative">
-            {/* 影の背景 */}
-            {/* <div className="bg-shadow"> */}
-              {/* バブルの背景 */}
-              {/* <div className="bg-bubbles"> */}
-                {/* メイン画像 */}
-                <div className="bg-shadow relative z-20">
-                  <img 
-                    src="/hero-image.png" 
-                    alt="SNS運用・コンテンツ制作"
-                    className="w-full h-auto"
-                  />
-                </div>
-              {/* </div> */}
-            
-            
-            {/* フローティングカード */}
-            {/* <div className="absolute -bottom-8 left-8 right-8 bg-white rounded-xl shadow-custom p-6">
-              <h3 className="text-xl font-bold text-dark-gray mb-2">
-                <span className="bg-gradient-main bg-clip-text text-transparent">
-                  成果にコミット
-                </span>
-              </h3>
-              <p className="text-gray-600 text-sm">
-                データ分析に基づいた戦略的SNS運用
-              </p>
-            </div> */}
+          <div className="relative lg:py-8">
+            {/* メイン画像 */}
+            <div className="bg-shadow relative z-20">
+              <img 
+                src="/hero-image.png" 
+                alt="SNS運用・コンテンツ制作"
+                className="w-full h-auto max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto"
+              />
+            </div>
           </div>
         </div>
       </div>

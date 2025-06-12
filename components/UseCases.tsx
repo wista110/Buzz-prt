@@ -1,34 +1,69 @@
-import { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 const UseCases = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
 
   const useCases = [
     {
-      company: "IT企業A社",
-      industry: "SaaS業界",
-      challenge: "新規顧客開拓が思うように進まず、売上目標達成が困難な状況でした。",
-      solution: "ターゲット企業の選定から、効果的なアプローチメッセージの作成まで、包括的にサポート。",
-      result: "月間アポ数が3倍に増加し、6ヶ月で売上が150%向上しました。",
-      testimonial: "カリトルくんのおかげで、営業チームがコア業務に集中できるようになりました。"
+      industry: "コインランドリー事業",
+      period: "運用開始6か月",
+      icon: "🏪",
+      bgGradient: "from-blue-500/10 to-purple-500/10",
+      borderColor: "border-blue-500/20",
+      accentColor: "text-blue-600",
+      results: [
+        { label: "TikTok検索ランキング", value: "1位獲得", icon: "🥇" },
+        { label: "LINE登録", value: "200人達成", icon: "📱" },
+        { label: "Google SEO掲載", value: "9位→2位", icon: "📈" }
+      ]
     },
     {
-      company: "製造業B社",
-      industry: "製造業界",
-      challenge: "従来の営業手法では新しい市場への参入が困難で、営業効率が悪い状況でした。",
-      solution: "業界特化のアプローチ手法で、製造業のニーズに合わせたメッセージを作成。",
-      result: "新市場での商談数が5倍に増加し、新規事業の立ち上げに成功しました。",
-      testimonial: "専門知識を活かしたアプローチで、想像以上の成果を得ることができました。"
+      industry: "不動産投資営業",
+      period: "運用開始4か月",
+      icon: "🏢",
+      bgGradient: "from-green-500/10 to-emerald-500/10",
+      borderColor: "border-green-500/20",
+      accentColor: "text-green-600",
+      results: [
+        { label: "月間平均再生数", value: "250%増", icon: "📹" },
+        { label: "月間平均契約数", value: "3名→5名", icon: "📝" },
+        { label: "TikTokでの売り上げ", value: "1200万", icon: "💰" }
+      ]
     },
     {
-      company: "コンサル企業C社",
-      industry: "コンサルティング業界",
-      challenge: "高単価サービスのため、質の高いリードの獲得が課題でした。",
-      solution: "企業規模や課題感に応じた精密なターゲティングと、価値提案の明確化を実施。",
-      result: "成約率が80%向上し、平均受注単価も120%アップしました。",
-      testimonial: "質の高いリードのおかげで、提案の成功率が格段に向上しました。"
+      industry: "運送業",
+      period: "利用継続中",
+      icon: "🚛",
+      bgGradient: "from-orange-500/10 to-red-500/10",
+      borderColor: "border-orange-500/20",
+      accentColor: "text-orange-600",
+      results: [
+        { label: "月間再生数", value: "20万再生", icon: "👀" },
+        { label: "求人のお問い合わせ", value: "1.5倍増", icon: "📞" },
+        { label: "採用コスト", value: "50%削減", icon: "💸" }
+      ]
     }
   ]
+
+  // インtersection Observer でスクロール検出
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.2 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % useCases.length)
@@ -38,94 +73,117 @@ const UseCases = () => {
     setCurrentSlide((prev) => (prev - 1 + useCases.length) % useCases.length)
   }
 
+  const currentCase = useCases[currentSlide]
+
   return (
-    <section className="bg-light-gray section-padding">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section 
+      ref={sectionRef}
+      className="bg-gradient-to-br from-gray-50 via-white to-primary-light/10 py-16 relative overflow-hidden"
+    >
+      {/* 背景装飾 */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* タイトルセクション */}
         <div className="text-center mb-16">
-          <h2 className="section-title text-4xl font-bold text-dark-gray mb-6">
-            活用事例
+          <h2 className={`text-4xl md:text-5xl font-bold text-gray-800 mb-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            <span className="bg-gradient-main bg-clip-text text-transparent">
+              活用事例
+            </span>
           </h2>
-          <p className="text-xl text-gray-600">
-            実際にカリトルくんをご利用いただいたお客様の成功事例
+          <p className={`text-xl text-gray-600 max-w-2xl mx-auto ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            実際にBuzz Partnersをご利用いただいたお客様の成功事例
           </p>
+          <div className={`w-24 h-1 bg-gradient-main mx-auto rounded-full mt-6 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}></div>
         </div>
 
-        <div className="relative">
-          <div className="bg-white rounded-2xl shadow-custom p-8 lg:p-12">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* 左側：会社情報とチャレンジ */}
-              <div className="space-y-6">
-                <div className="text-center lg:text-left">
-                  <div className="inline-block bg-primary-red text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                    {useCases[currentSlide].industry}
-                  </div>
-                  <h3 className="text-2xl font-bold text-dark-gray mb-4">
-                    {useCases[currentSlide].company}
-                  </h3>
-                </div>
-
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-lg font-semibold text-primary-red mb-2">課題</h4>
-                    <p className="text-gray-600">{useCases[currentSlide].challenge}</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-semibold text-primary-red mb-2">ソリューション</h4>
-                    <p className="text-gray-600">{useCases[currentSlide].solution}</p>
-                  </div>
-                </div>
+        {/* メインカード */}
+        <div className={`relative ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <div className={`bg-gradient-to-r ${currentCase.bgGradient} backdrop-blur-sm border-2 ${currentCase.borderColor} rounded-3xl shadow-2xl p-8 lg:p-12 transition-all duration-500`}>
+            
+            {/* ヘッダー */}
+            <div className="text-center mb-12">
+              <div className="text-6xl mb-4">{currentCase.icon}</div>
+              <h3 className={`text-3xl md:text-4xl font-bold ${currentCase.accentColor} mb-2`}>
+                {currentCase.industry}
+              </h3>
+              <div className="inline-block bg-white/80 backdrop-blur-sm px-6 py-2 rounded-full shadow-md">
+                <span className="text-gray-700 font-medium">{currentCase.period}</span>
               </div>
+            </div>
 
-              {/* 右側：結果と声 */}
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-primary-red mb-2">結果</h4>
-                  <p className="text-gray-600">{useCases[currentSlide].result}</p>
+            {/* 成果指標 */}
+            <div className="grid md:grid-cols-3 gap-8">
+              {currentCase.results.map((result, index) => (
+                <div 
+                  key={index}
+                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+                >
+                  <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                    {result.icon}
+                  </div>
+                  <div className="text-gray-600 text-sm font-medium mb-2">
+                    {result.label}
+                  </div>
+                  <div className={`text-2xl md:text-3xl font-bold ${currentCase.accentColor} group-hover:animate-pulse-glow`}>
+                    {result.value}
+                  </div>
                 </div>
+              ))}
+            </div>
 
-                <div className="bg-light-red p-6 rounded-2xl">
-                  <h4 className="text-lg font-semibold text-dark-gray mb-3">お客様の声</h4>
-                  <p className="text-gray-700 italic">
-                    &ldquo;{useCases[currentSlide].testimonial}&rdquo;
-                  </p>
-                </div>
-              </div>
+            {/* 追加の装飾 */}
+            <div className="absolute top-6 right-6 opacity-10">
+              <div className={`w-32 h-32 bg-gradient-main rounded-full blur-2xl`}></div>
             </div>
           </div>
 
           {/* ナビゲーションボタン */}
-          <div className="flex justify-center mt-8 space-x-4">
+          <div className="flex justify-center mt-8 space-x-6">
             <button
               onClick={prevSlide}
-              className="bg-white hover:bg-gray-50 text-primary-red border-2 border-primary-red rounded-full w-12 h-12 flex items-center justify-center transition-colors"
+              className="group bg-white hover:bg-gradient-main hover:text-white text-gray-700 border-2 border-gray-200 hover:border-transparent rounded-full w-14 h-14 flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110"
               aria-label="前の事例"
             >
-              ←
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
             </button>
             <button
               onClick={nextSlide}
-              className="bg-white hover:bg-gray-50 text-primary-red border-2 border-primary-red rounded-full w-12 h-12 flex items-center justify-center transition-colors"
+              className="group bg-white hover:bg-gradient-main hover:text-white text-gray-700 border-2 border-gray-200 hover:border-transparent rounded-full w-14 h-14 flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110"
               aria-label="次の事例"
             >
-              →
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </button>
           </div>
 
           {/* インジケーター */}
-          <div className="flex justify-center mt-4 space-x-2">
-            {useCases.map((_, index) => (
+          <div className="flex justify-center mt-6 space-x-3">
+            {useCases.map((useCase, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentSlide ? 'bg-primary-red' : 'bg-gray-300'
+                className={`relative overflow-hidden rounded-full transition-all duration-300 ${
+                  index === currentSlide 
+                    ? 'w-12 h-4 bg-gradient-main shadow-lg' 
+                    : 'w-4 h-4 bg-gray-300 hover:bg-gray-400'
                 }`}
-                aria-label={`事例 ${index + 1}`}
-              />
+                aria-label={`${useCase.industry}の事例`}
+              >
+                {index === currentSlide && (
+                  <div className="absolute inset-0 bg-white/30 animate-pulse rounded-full"></div>
+                )}
+              </button>
             ))}
           </div>
         </div>
+
       </div>
     </section>
   )

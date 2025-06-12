@@ -1,16 +1,41 @@
 import Head from 'next/head'
 import Header from '../components/Header'
 import HeroSection from '../components/HeroSection'
+import MarqueeTags from '../components/MarqueeTags'
 import AchievementBadges from '../components/AchievementBadges'
 import UseCases from '../components/UseCases'
 import PainPoints from '../components/PainPoints'
-import ServiceIntroduction from '../components/ServiceIntroduction'
 import Strengths from '../components/Strengths'
-import Pricing from '../components/Pricing'
 import ContactForm from '../components/ContactForm'
 import Footer from '../components/Footer'
 
 export default function Home() {
+  // サンプルタグ配列
+  const popularTags = [
+    '#love',
+    '#instagood',
+    '#AI',
+    '#photooftheday',
+    '#fashion',
+    '#beautiful',
+    '#happy',
+    '#cute',
+    '#tbt',
+    '#art',
+    '#followme',
+    '#picoftheday',
+    '#nature',
+    '#like4like',
+    '#cat',
+    '#travel',
+    '#fitness',
+    '#foodporn',
+    '#instadaily',
+    '#beauty',
+    '#selfie',
+    '#summer'
+  ];
+
   return (
     <>
       <Head>
@@ -20,13 +45,13 @@ export default function Home() {
           content="Buzz Partners"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="keywords" content="SNS代行,アポイント獲得,商談創出,テレアポ,営業アウトソーシング,マーケティング,マーケティング代行,マーケティングアウトソーシング" />
-        <meta property="og:title" content="Buzz Partners - 成果にこだわったSNS運用をサポートします" />
+        <meta name="keywords" content="SNS代行,AI活用,動画編集,SNS運用,SNSマーケティング,マーケティング,マーケティング代行,マーケティングアウトソーシング" />
+        <meta property="og:title" content="Buzz Partners - 圧倒的な実績でサポートします" />
         <meta property="og:description" content="あの会社、あのお店、あのサービス、を一緒に育てます" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://karitoru-kun.com" />
+        <meta property="og:url" content="https://Buzz-prt.com" />
         <meta name="twitter:card" content="summary_large_image" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
         
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,22 +65,22 @@ export default function Home() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "カリトルくん",
-              "description": "商談創出に特化した営業代行サービス",
-              "url": "https://karitoru-kun.com",
+              "name": "Buzz Partners",
+              "description": "SNS運用代行サービス",
+              "url": "https://Buzz-prt.com",
               "telephone": "03-1234-5678",
-              "email": "contact@karitoru-kun.com",
+              "email": "contact@Buzz-prt.com",
               "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "JP",
                 "addressRegion": "東京都",
                 "addressLocality": "渋谷区"
               },
-              "serviceType": "営業代行サービス",
+              "serviceType": "SNS運用代行サービス",
               "areaServed": "日本",
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
-                "name": "営業代行プラン",
+                "name": "SNS運用代行プラン",
                 "itemListElement": [
                   {
                     "@type": "Offer",
@@ -84,14 +109,25 @@ export default function Home() {
 
       <main className="min-h-screen">
         <Header />
-        <HeroSection />
+        <section id="hero">
+          <HeroSection />
+        </section>
+        <section id="achievements">
+        <MarqueeTags tags={popularTags} />
         <AchievementBadges />
-        <UseCases />
-        <PainPoints />
-        <ServiceIntroduction />
-        <Strengths />
-        <Pricing />
-        <ContactForm />
+        </section>
+        <section id="use-cases">
+          <UseCases />
+        </section>
+        <section id="pain-points">
+          <PainPoints />
+        </section>
+        <section id="strengths">
+          <Strengths />
+        </section>
+        <section id="contact">
+          <ContactForm />
+        </section>
         <Footer />
       </main>
     </>

@@ -57,7 +57,7 @@ const ContactForm = () => {
                     value={formData.lastName}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent"
-                    placeholder="山田"
+                    placeholder="バズ"
                   />
                 </div>
                 <div>
@@ -89,7 +89,7 @@ const ContactForm = () => {
                   value={formData.company}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent"
-                  placeholder="株式会社サンプル"
+                  placeholder="株式会社パートナーズ"
                 />
               </div>
 

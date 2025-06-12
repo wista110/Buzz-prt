@@ -6,6 +6,8 @@
 @layer base {
   html {
     font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    scroll-padding-top: 64px; /* ヘッダー高さ + 余白 */
+    scroll-behavior: smooth;
   }
   
   body {
@@ -383,4 +385,16 @@
   width: 100%;
   height: 100%;
   content: "";
+}
+
+@layer utilities {
+  .loading-gradient {
+    background: linear-gradient(
+      to right,
+      #4f46e5,
+      #ec4899,
+      #f97316
+    );
+    background-size: 200% 100%;
+  }
 }
