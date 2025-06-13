@@ -34,13 +34,13 @@ const Header = () => {
 
           {/* デスクトップナビゲーション */}
           <nav className="hidden md:flex space-x-8">
-            <a href="#achievements" className="text-gray-700 hover:text-primary-red transition-colors">
+            <a href="#achievements" className="text-gray-700 hover:text-primary transition-colors">
               実績
             </a>
-            <a href="#use-cases" className="text-gray-700 hover:text-primary-red transition-colors">
+            <a href="#use-cases" className="text-gray-700 hover:text-primary transition-colors">
               活用事例
             </a>
-            <a href="#pain-points" className="text-gray-700 hover:text-primary-red transition-colors">
+            <a href="#pain-points" className="text-gray-700 hover:text-primary transition-colors">
               サポート
             </a>
             <a href="#strengths" className="text-gray-700 hover:text-primary transition-colors">

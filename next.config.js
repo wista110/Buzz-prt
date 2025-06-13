@@ -11,8 +11,8 @@ const nextConfig = {
     output: 'export',
     trailingSlash: true,
     skipTrailingSlashRedirect: true,
-    basePath: '/karitorumosya',
-    assetPrefix: '/karitorumosya/',
+    basePath: '/Buzz-prt',
+    assetPrefix: '/Buzz-prt/',
   }),
   
   images: {

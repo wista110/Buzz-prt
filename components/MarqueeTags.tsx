@@ -16,7 +16,7 @@ const MarqueeTags: React.FC<MarqueeTagsProps> = ({ tags }) => {
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white/80 to-transparent z-10 pointer-events-none"></div>
           
           {/* 無限スクロールコンテナ */}
-          <div className="flex animate-marquee-infinite py-6">
+          <div className="flex animate-marquee-infinite-sm md:animate-marquee-infinite py-6">
             {/* タグ配列を3回複製して完全に途切れない無限ループを作成 */}
             {[...tags, ...tags, ...tags].map((tag, index) => (
               <span
@@ -36,7 +36,7 @@ const MarqueeTags: React.FC<MarqueeTagsProps> = ({ tags }) => {
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white/80 to-transparent z-10 pointer-events-none"></div>
           
           {/* 無限スクロールコンテナ（逆方向） */}
-          <div className="flex animate-marquee-reverse py-6">
+          <div className="flex animate-marquee-reverse-sm md:animate-marquee-reverse py-6">
             {/* タグ配列を3回複製して完全に途切れない無限ループを作成 */}
             {[...tags, ...tags, ...tags].map((tag, index) => (
               <span

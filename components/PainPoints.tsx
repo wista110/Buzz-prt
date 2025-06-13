@@ -40,7 +40,7 @@ const PainPoints = () => {
       {/* 背景装飾 */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-64 h-64 bg-red-200/20 rounded-full blur-3xl animate-float-gentle"></div>
-        <div className="absolute bottom-10 right-10 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl animate-float-gentle" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl animate-float-gentle" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -81,12 +81,21 @@ const PainPoints = () => {
             {worryTextImages.map((imageSrc, index) => {
               // 配置位置を手動で指定（より確実な方法）
               const positions = [
-                { top: '10%', left: '50%', transform: 'translate(-50%, -50%)' },    // 上
-                { top: '34%', right: '16%', transform: 'translate(50%, -50%)' },   // 右上
-                { top: '64%', right: '0%', transform: 'translate(50%, -50%)' },   // 右下
-                { bottom: '10%', left: '50%', transform: 'translate(-50%, 50%)' }, // 下
-                { top: '72%', left: '18%', transform: 'translate(-50%, -50%)' },   // 左下
-                { top: '26%', left: '2%', transform: 'translate(-50%, -50%)' }    // 左上
+                { top: '10%', left: '50%' },    // 上
+                { top: '30%', right: '15%' },   // 右上
+                { top: '70%', right: '15%' },   // 右下
+                { bottom: '10%', left: '50%' }, // 下
+                { top: '70%', left: '15%' },    // 左下
+                { top: '30%', left: '15%' }     // 左上
+              ]
+              
+              const transforms = [
+                'translate(-50%, -50%)',
+                'translate(50%, -50%)',
+                'translate(50%, -50%)',
+                'translate(-50%, 50%)',
+                'translate(-50%, -50%)',
+                'translate(-50%, -50%)'
               ]
               
               return (
@@ -94,19 +103,21 @@ const PainPoints = () => {
                   key={index}
                   className={`absolute ${
                     isVisible 
-                      ? `animate-float-in-delay-${index + 1}` 
+                      ? 'animate-float-in opacity-100'
                       : 'opacity-0'
                   }`}
                   style={positions[index]}
                 >
-                  <img 
-                    src={`/${imageSrc}`}
-                    alt={`SNS運用の悩み ${index + 1}`}
-                    className="w-96 h-auto hover:scale-105 transition-transform duration-300 drop-shadow-lg"
-                    style={{
-                      filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.1))'
-                    }}
-                  />
+                  <div style={{ transform: transforms[index] }}>
+                    <img 
+                      src={`/${imageSrc}`}
+                      alt={`SNS運用の悩み ${index + 1}`}
+                      className="w-96 h-auto hover:scale-105 transition-transform duration-300 drop-shadow-lg"
+                      style={{
+                        filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.1))'
+                      }}
+                    />
+                  </div>
                 </div>
               )
             })}
@@ -125,7 +136,7 @@ const PainPoints = () => {
                     key={index}
                     className={`flex justify-center ${
                       isVisible 
-                        ? `animate-float-in-delay-${index + 1}` 
+                        ? 'animate-float-in' 
                         : 'opacity-0'
                     }`}
                   >
@@ -144,7 +155,7 @@ const PainPoints = () => {
 
             {/* 右側: イラスト画像（タブレットのみ表示） */}
             <div className="hidden md:block lg:col-span-1 xl:hidden">
-              <div className={`text-center ${isVisible ? 'animate-float-in-delay-3' : 'opacity-0'}`}>
+              <div className={`text-center ${isVisible ? 'animate-float-in' : 'opacity-0'}`}>
                 <img 
                   src="/worries_image.png"
                   alt="SNS運用で悩む人のイラスト"
@@ -159,7 +170,7 @@ const PainPoints = () => {
 
           {/* モバイル専用: イラスト画像（小さめ表示） */}
           <div className="md:hidden mt-12">
-            <div className={`text-center ${isVisible ? 'animate-float-in-delay-6' : 'opacity-0'}`}>
+            <div className={`text-center ${isVisible ? 'animate-float-in' : 'opacity-0'}`}>
               <img 
                 src="/worries_image.png"
                 alt="SNS運用で悩む人のイラスト"

@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Buzz Partners - 成果にこだわったSNS運用をサポートします</title>
+        <title>Buzz Partners - ”あの会社”へ、今日から一緒に。</title>
         <meta 
           name="description" 
           content="Buzz Partners"
@@ -51,6 +51,7 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://Buzz-prt.com" />
         <meta name="twitter:card" content="summary_large_image" />
+        
         
         {/* ファビコン設定（複数サイズ対応） */}
         <link rel="icon" href="/favicon.ico" />

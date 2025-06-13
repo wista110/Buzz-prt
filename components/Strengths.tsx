@@ -68,7 +68,7 @@ const Strengths = () => {
                 key={index}
                 className={`flex justify-center ${
                   isVisible 
-                    ? `animate-slide-in-left-delay-${Math.floor(index / 2) + 1}` 
+                    ? `animate-fade-in-up` 
                     : 'opacity-0'
                 }`}
               >
@@ -97,7 +97,7 @@ const Strengths = () => {
                     key={index}
                     className={`flex justify-center ${
                       isVisible 
-                        ? `animate-slide-in-left-delay-${index + 1}` // 左から
+                        ? `animate-fade-in-left-delay-1` // 左からフェードイン
                         : 'opacity-0'
                     }`}
                   >
@@ -120,7 +120,7 @@ const Strengths = () => {
                     key={index + 3}
                     className={`flex justify-center ${
                       isVisible 
-                        ? `animate-slide-in-right-delay-${index + 1}` // 右から
+                        ? `animate-fade-in-right-delay-1` // 右からフェードイン
                         : 'opacity-0'
                     }`}
                   >
