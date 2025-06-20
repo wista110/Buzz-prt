@@ -1,15 +1,15 @@
-# カリトルくん - ランディングページ
+# Buzz Partners - ランディングページ
 
 [![Next.js](https://img.shields.io/badge/Next.js-14.0.0-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.17-38B2AC)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-商談創出に特化した営業代行サービス「カリトルくん」の公式ランディングページです。
+TikTok・SNS運用代行サービス「Buzz Partners」の公式ランディングページです。
 
 ## 🎯 プロジェクト概要
 
-質の高いアポイントメントで企業の営業活動をサポートする「カリトルくん」のマーケティング用ランディングページ。レスポンシブデザインで、リード獲得に最適化された構成となっています。
+「話題の『あの会社』へ、今日から一緒に。」をキャッチコピーに、企画・撮影から編集まで一貫したSNS運用サポートを提供する「Buzz Partners」のマーケティング用ランディングページ。レスポンシブデザインで、リード獲得に最適化された構成となっています。
 
 ## 🚀 特徴
 
@@ -17,42 +17,41 @@
 - **TypeScript** - 型安全な開発環境
 - **Tailwind CSS** - ユーティリティファーストのCSSフレームワーク
 - **レスポンシブデザイン** - モバイル・タブレット・デスクトップ対応
+- **モバイルスワイプ対応** - タッチジェスチャーでの直感的な操作
 - **SEO最適化** - メタタグ・構造化データ・アクセシビリティ対応
 - **高パフォーマンス** - Core Web Vitals最適化
+- **ローディングアニメーション** - 印象的なブランド体験
 
 ## 📋 ページ構成
 
-1. **ヘッダー** - ロゴ・ナビゲーション・CTAボタン
-2. **ヒーローセクション** - キャッチコピー・イラスト・主要数値
-3. **導入実績バッジ** - 圧倒的な実績の訴求
-4. **悩み訴求ブロック** - ユーザーの課題を明確化
-5. **サービス紹介** - 「そもそもカリトルくんとは」
-6. **サービスの強み** - 3つのポイント
-7. **対応範囲** - 幅広いサポート内容
-8. **活用事例スライダー** - 実際の成功事例
-9. **効果的な理由** - なぜ商談を獲得できるのか
-10. **料金プラン** - 3つの選択肢
-11. **導入までの流れ** - 4ステップ
-12. **FAQ** - よくある質問
-13. **お問い合わせフォーム** - リード獲得
-14. **フッター** - サイトマップ・連絡先
+1. **ローディングスクリーン** - ブランドロゴとアニメーション
+2. **ヘッダー** - ロゴ・ナビゲーション・CTAボタン
+3. **ヒーローセクション** - キャッチコピー・メインビジュアル・CTA
+4. **導入実績バッジ** - 圧倒的な実績の訴求
+5. **悩み訴求ブロック** - ユーザーの課題を明確化
+6. **サービスの強み** - Buzz Partnersの6つの特徴
+7. **活用事例スライダー** - 10業種の成功事例（スワイプ対応）
+8. **お問い合わせフォーム** - リード獲得
+9. **フッター** - 企業情報・プライバシーポリシー
 
 ## 🛠 セットアップ
 
 ### 必要な環境
 - Node.js 18.0.0以上
-- npm または yarn
+- npm、yarn、または pnpm
 
 ### インストール手順
 
 1. **リポジトリのクローン**
    ```bash
-   git clone https://github.com/your-username/karitoru-kun-lp.git
-   cd karitoru-kun-lp
+   git clone https://github.com/your-username/karitorumosya.git
+   cd karitorumosya
    ```
 
 2. **依存関係のインストール**
    ```bash
+   pnpm install
+   # または
    npm install
    # または
    yarn install
@@ -60,6 +59,8 @@
 
 3. **開発サーバーの起動**
    ```bash
+   pnpm dev
+   # または
    npm run dev
    # または
    yarn dev
@@ -74,37 +75,40 @@
 
 ```bash
 # 本番用ビルド
-npm run build
+pnpm build
+
+# GitHub Pages用ビルド
+pnpm build:github
 
 # ビルド後のアプリケーション起動
-npm run start
+pnpm start
 
 # リンターチェック
-npm run lint
+pnpm lint
 ```
 
 ## 🎨 デザインシステム
 
 ### カラーパレット
-- **Primary Red**: `#E53E3E` - メインブランドカラー
-- **Accent Red**: `#FF6B6B` - アクセントカラー
-- **Light Red**: `#FFF5F5` - 背景色
-- **Dark Gray**: `#2D3748` - テキストカラー
-- **Light Gray**: `#F7FAFC` - セクション背景
+- **Primary**: グラデーション（`bg-gradient-main`）
+- **Secondary**: アクセントカラー（`bg-gradient-reverse`）
+- **Text**: `text-gray-800`, `text-gray-600`
+- **Background**: グラデーション背景（`from-gray-50 via-white to-primary-light/10`）
 
 ### フォント
-- **日本語**: Noto Sans JP
-- **英語**: Inter
+- **日本語**: M PLUS Rounded 1c
+- **英語**: Montserrat
 
-### コンポーネント
-- `btn-primary` - 主要なCTAボタン
-- `btn-secondary` - セカンダリボタン
-- `section-padding` - セクション共通の余白
+### アニメーション
+- `animate-fade-in-up` - フェードインアップ
+- `animate-float-gentle` - ふんわり浮遊
+- `animate-heartbeat` - ハートビート効果
+- `animate-loading-bar` - ローディングバー
 
 ## 📁 ファイル構成
 
 ```
-├── components/           # Reactコンポーネント
+├── components/              
 │   ├── Header.tsx       # ヘッダー
 │   ├── HeroSection.tsx  # ヒーローセクション
 │   ├── PainPoints.tsx   # 悩み訴求
