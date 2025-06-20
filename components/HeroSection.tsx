@@ -76,7 +76,7 @@ const HeroSection = () => {
             {/* メイン画像 */}
             <div className="bg-shadow relative z-20">
               <img 
-                src="/hero-image.png" 
+                src="/buzzpartners.png" 
                 alt="SNS運用・コンテンツ制作"
                 className="w-full h-auto max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto"
               />
