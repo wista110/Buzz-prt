@@ -42,15 +42,16 @@ export default function Home() {
         <title>Buzz Partners - ”あの会社”へ、今日から一緒に。</title>
         <meta 
           name="description" 
-          content="Buzz Partners"
+          content="話題の『あの会社』へ、今日から一緒に。企画・撮影から編集まで一貫したSNS運用代行サービス。TikTok・Instagram・YouTube運用で圧倒的な実績を誇るBuzz Partnersにお任せください。"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="keywords" content="SNS代行,AI活用,動画編集,SNS運用,SNSマーケティング,マーケティング,マーケティング代行,マーケティングアウトソーシング" />
-        <meta property="og:title" content="Buzz Partners - 圧倒的な実績でサポートします" />
-        <meta property="og:description" content="あの会社、あのお店、あのサービス、を一緒に育てます" />
+        <meta name="keywords" content="BuzzPartners,バズパートナーズ,SNS運用代行 全国対応,TikTok運用代行,Instagram運用代行,YouTube運用代行,SNS集客,コンテンツ制作,動画編集,SNSマーケティング,オンライン SNS代行,企業SNS運用,Buzz Partners 評判,SNSコンサルティング,東京 大阪 名古屋 愛知 福岡 長野 沖縄 SNS運用,全国 SNS代行" />
+        <meta property="og:title" content="BuzzPartners｜SNS運用代行・TikTok・Instagram集客専門" />
+        <meta property="og:description" content="話題の『あの会社』へ、今日から一緒に。企画・撮影から編集まで一貫したSNS運用代行サービス。TikTok・Instagram・YouTube運用で圧倒的な実績を誇るBuzz Partnersにお任せください。" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://Buzz-prt.com" />
+        <meta property="og:url" content="https://www.buzzpartners.jp/" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="google-site-verification" content="5m_s-TgUtpzrhwu2MwsHCC1pHQUY_g8q0UeFYwTFRu8" />
         
         
         {/* ファビコン設定（複数サイズ対応） */}
@@ -72,9 +73,9 @@ export default function Home() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "Buzz Partners",
-              "description": "SNS運用代行サービス",
-              "url": "https://Buzz-prt.com",
+              "name": "BuzzPartners",
+              "description": "全国対応のSNS運用代行・TikTok・Instagram・YouTube集客専門サービス。オンラインで全国どこでもサポート",
+              "url": "https://www.buzzpartners.jp/",
               "telephone": "03-1234-5678",
               "email": "contact@Buzz-prt.com",
               "address": {
@@ -83,8 +84,8 @@ export default function Home() {
                 "addressRegion": "東京都",
                 "addressLocality": "渋谷区"
               },
-              "serviceType": "SNS運用代行サービス",
-              "areaServed": "日本",
+              "serviceType": "SNS運用代行,TikTok運用代行,Instagram運用代行,YouTube運用代行,SNS集客,コンテンツ制作",
+              "areaServed": ["日本", "東京都", "大阪府", "愛知県", "福岡県", "北海道", "宮城県", "広島県", "沖縄県"],
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "SNS運用代行プラン",
