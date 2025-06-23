@@ -428,11 +428,11 @@
   }
 
   .glitch--5 [data-char]::after {
-    text-shadow: calc(var(--spread) * -1px) calc(var(--spread) * -1px) red;
+    text-shadow: calc(var(--spread) * -1px) calc(var(--spread) * -1px) rgb(250, 98, 230);
   }
 
   .glitch--5 [data-char]::before {
-    text-shadow: calc(var(--spread) * 1px) calc(var(--spread) * 1px) cyan;
+    text-shadow: calc(var(--spread) * 1px) calc(var(--spread) * 1px) rgb(70, 243, 243);
   }
 
   /* 特定文字だけ特別なアニメーション（"、あ、の、へ） */
