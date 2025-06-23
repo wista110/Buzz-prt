@@ -68,19 +68,11 @@ const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose }) => {
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start">
                 <span className="text-secondary mr-2">•</span>
-                サービスの提供・運営
-              </li>
-              <li className="flex items-start">
-                <span className="text-secondary mr-2">•</span>
                 お問い合わせ対応
               </li>
               <li className="flex items-start">
                 <span className="text-secondary mr-2">•</span>
-                更新情報やキャンペーン案内の配信
-              </li>
-              <li className="flex items-start">
-                <span className="text-secondary mr-2">•</span>
-                有料サービスの請求
+                更新情報やキャンペーン案内のご案内
               </li>
             </ul>
           </section>
@@ -140,10 +132,10 @@ const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose }) => {
               <div className="flex items-center text-gray-700">
                 <span className="mr-2">📧</span>
                 <a 
-                  href="mailto:info@buzz-prt.com" 
+                  href="mailto:info@buzzpartners.jp" 
                   className="text-primary hover:text-secondary underline transition-colors duration-300"
                 >
-                  info@buzz-prt.com
+                  info@buzzpartners.jp
                 </a>
               </div>
             </div>

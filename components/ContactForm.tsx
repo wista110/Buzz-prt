@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import PrivacyModal from './PrivacyModal'
+
+
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +13,10 @@ const ContactForm = () => {
     inquiryType: '',
     message: ''
   })
+  
+  // 送信状態管理を追加
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -19,12 +26,51 @@ const ContactForm = () => {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // ここで実際のフォーム送信処理を行います
-    console.log('Form submitted:', formData)
-    // 成功メッセージや次のステップへの誘導
-    alert('お問い合わせありがとうございます。24時間以内にご連絡いたします。')
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    
+    try {
+      // APIに送信するデータを整形
+      const submitData = {
+        name: `${formData.lastName} ${formData.firstName}`, // APIが期待する形式
+        email: formData.email,
+        company: formData.company,
+        phone: formData.phone,
+        inquiryType: formData.inquiryType,
+        message: formData.message
+      }
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submitData),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        // フォームをリセット
+        setFormData({
+          lastName: '',
+          firstName: '',
+          company: '',
+          email: '',
+          phone: '',
+          inquiryType: '',
+          message: ''
+        })
+      } else {
+        throw new Error('送信に失敗しました')
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+      console.error('Submit error:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -79,13 +125,12 @@ const ContactForm = () => {
 
               <div>
                 <label htmlFor="company" className="block text-sm font-medium text-dark-gray mb-2">
-                  会社名 <span className="text-primary-red">*</span>
+                  会社名
                 </label>
                 <input
                   type="text"
                   id="company"
                   name="company"
-                  required
                   value={formData.company}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent"
@@ -162,9 +207,10 @@ const ContactForm = () => {
               <div className="text-center">
                 <button
                   type="submit"
-                  className="w-full btn-primary py-4 text-lg"
+                  disabled={isSubmitting}
+                  className={`w-full btn-primary py-4 text-lg ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
-                  お問い合わせを送信する
+                  {isSubmitting ? '送信中...' : 'お問い合わせを送信する'}
                 </button>
               </div>
             </form>
@@ -175,9 +221,22 @@ const ContactForm = () => {
           お送りいただいた個人情報は、お問い合わせへの回答のみに利用し、
           <br />
           適切に管理いたします。詳しくは
-          <a href="#" className="text-primary-red hover:underline">プライバシーポリシー</a>
+          <a href="#Footer" className="hover:text-primary-red hover:underline transition-all duration-300">プライバシーポリシー</a>
           をご確認ください。
         </div>
+
+        {/* 成功・エラーメッセージ表示 */}
+        {submitStatus === 'success' && (
+          <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
+            お問い合わせありがとうございます。24時間以内にご連絡いたします。
+          </div>
+        )}
+        
+        {submitStatus === 'error' && (
+          <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
+            送信に失敗しました。時間をおいて再度お試しください。
+          </div>
+        )}
 
     </section>
   )

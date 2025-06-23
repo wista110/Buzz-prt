@@ -20,17 +20,18 @@ const HeroSection = () => {
                 <p className="text-black text-[40px] lg:text-[48px] xl:text-[56px] leading-none select-none text-left font-montserrat font-bold italic">
                     話題の
                 </p>
-                <img
-                   src="/bzp-hero-copy.png"
-                   alt="「あの会社」へ"
-                   className={`
-                      inline-block
-                      w-[320px] lg:w-[380px] xl:w-[420px]
-                      h-[80px] lg:h-[95px] xl:h-[105px]
-                      mx-auto
-                      ${!isLoading ? 'animate-heartbeat animation-delay-[2s]' : ''}
-                   `}
-                />
+                <div className={`
+                      glitch-container mx-auto
+                      ${!isLoading ? 'animation-delay-[2s]' : ''}
+                   `}>
+                  <div className="glitch-hero glitch--5">
+                    {'"あの会社"へ'.split('').map((char, i) => (
+                      <span key={i} data-char={char}>
+                        {char}
+                      </span>
+                    ))}
+                  </div>
+                </div>
                 <p className="text-black text-[40px] lg:text-[48px] xl:text-[56px] leading-none select-none text-right font-montserrat font-bold italic">
                   今日から一緒に
                 </p>

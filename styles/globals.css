@@ -387,6 +387,141 @@
   content: "";
 }
 
+  /* グリッチエフェクト */
+  .glitch-container {
+    @apply flex items-center justify-center;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .glitch {
+    @apply font-bold text-black;
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+
+  /* "あの会社"へ 専用サイズ */
+  .glitch-hero {
+    @apply font-bold text-black;
+    font-size: clamp(3.2rem, 8vw, 4.5rem);  /* お好みのサイズに調整 */
+  }
+
+  /* Glitch--5 のメインスタイル */
+  .glitch--5 [data-char] {
+    position: relative;
+    display: inline-block;
+    animation: glitch--5 2s infinite alternate;
+    --spread: 0;
+    --skew: 0;
+    transform: scale(1);
+  }
+
+  .glitch--5 [data-char]::after,
+  .glitch--5 [data-char]::before {
+    content: attr(data-char);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color: inherit;
+    opacity: 0.75;
+    transform: skew(calc(var(--skew) * 1deg));
+  }
+
+  .glitch--5 [data-char]::after {
+    text-shadow: calc(var(--spread) * -1px) calc(var(--spread) * -1px) red;
+  }
+
+  .glitch--5 [data-char]::before {
+    text-shadow: calc(var(--spread) * 1px) calc(var(--spread) * 1px) cyan;
+  }
+
+  /* 特定文字だけ特別なアニメーション（"、あ、の、へ） */
+  .glitch--5 [data-char='"'],
+  .glitch--5 [data-char='あ'],
+  .glitch--5 [data-char='の'],
+  .glitch--5 [data-char='へ'] {
+    animation: glitch--5-special 2s infinite alternate;
+  }
+
+  /* すべての文字で共通のグリッチアニメーション */
+  @keyframes glitch--5 {
+    0% {
+      --spread: 3;
+      --skew: 0;
+      transform: scale(1);
+    }
+    5% {
+      --spread: -1;
+      transform: scale(1);
+    }
+    10% {
+      --spread: -4;
+      --skew: 5;
+      transform: scale(1);
+    }
+    12% {
+      --spread: 3;
+      --skew: 3;
+      transform: scale(1);
+    }
+    15% {
+      --spread: 1;
+      transform: scale(1);
+    }
+    18% {
+      --spread: 4;
+      --skew: -4;
+      transform: scale(1);
+    }
+    25%, 100% {
+      --skew: 0;
+      --spread: 0;
+      transform: scale(1);
+    }
+  }
+
+  /* 特定文字用のアニメーション（大きさ変化あり） */
+  @keyframes glitch--5-special {
+    0% {
+      --spread: 3;
+      --skew: 0;
+      transform: scale(1);
+    }
+    5% {
+      --spread: -1;
+      transform: scale(1);
+    }
+    10% {
+      --spread: -4;
+      --skew: 5;
+      transform: scale(1);
+    }
+    12% {
+      --spread: 3;
+      --skew: 3;
+      transform: scale(1.4);
+    }
+    13% {
+      --spread: 3;
+      --skew: 3;
+      transform: scale(1);
+    }
+    15% {
+      --spread: 1;
+      transform: scale(1);
+    }
+    18% {
+      --spread: 4;
+      --skew: -4;
+      transform: scale(1);
+    }
+    25%, 100% {
+      --skew: 0;
+      --spread: 0;
+      transform: scale(1);
+    }
+  }
+
 @layer utilities {
   .loading-gradient {
     background: linear-gradient(
