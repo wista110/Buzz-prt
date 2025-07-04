@@ -33,12 +33,12 @@ const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose }) => {
           {/* はじめに */}
           <section>
             <p className="text-gray-700 leading-relaxed">
-              Buzz-partners株式会社（以下「当社」）は、本サイトの利用者（以下「ユーザー」）の個人情報を以下の目的で取得・利用します。
+              Buzzpartners株式会社（以下「当社」）は、本サイトの利用者（以下「ユーザー」）の個人情報を以下の目的で取得・利用します。
             </p>
           </section>
 
           {/* 収集項目 */}
-          <section className="bg-gray-50 p-6 rounded-xl">
+          <section className="bg-purple-50 p-6 rounded-xl">
             <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
               <span className="bg-gradient-main text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">1</span>
               収集項目
@@ -60,7 +60,7 @@ const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose }) => {
           </section>
 
           {/* 利用目的 */}
-          <section className="bg-blue-50 p-6 rounded-xl">
+          <section className="bg-purple-50 p-6 rounded-xl">
             <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
               <span className="bg-gradient-main text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">2</span>
               利用目的
@@ -78,7 +78,7 @@ const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose }) => {
           </section>
 
           {/* 第三者提供 */}
-          <section className="bg-green-50 p-6 rounded-xl">
+          <section className="bg-purple-50 p-6 rounded-xl">
             <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
               <span className="bg-gradient-main text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">3</span>
               第三者提供
@@ -89,7 +89,7 @@ const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose }) => {
           </section>
 
           {/* 安全管理 */}
-          <section className="bg-orange-50 p-6 rounded-xl">
+          <section className="bg-purple-50 p-6 rounded-xl">
             <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
               <span className="bg-gradient-main text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">4</span>
               安全管理
@@ -111,7 +111,7 @@ const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose }) => {
           </section>
 
           {/* 変更 */}
-          <section className="bg-pink-50 p-6 rounded-xl">
+          <section className="bg-purple-50 p-6 rounded-xl">
             <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
               <span className="bg-gradient-main text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">6</span>
               変更

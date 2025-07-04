@@ -45,8 +45,8 @@ export default function Home() {
           content="話題の『あの会社』へ、今日から一緒に。企画・撮影から編集まで一貫したSNS運用代行サービス。TikTok・Instagram・YouTube運用で圧倒的な実績を誇るBuzz Partnersにお任せください。"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="keywords" content="BuzzPartners,バズパートナーズ,SNS運用代行 全国対応,TikTok運用代行,Instagram運用代行,YouTube運用代行,SNS集客,コンテンツ制作,動画編集,SNSマーケティング,オンライン SNS代行,企業SNS運用,Buzz Partners 評判,SNSコンサルティング,東京 大阪 名古屋 愛知 福岡 長野 沖縄 SNS運用,全国 SNS代行" />
-        <meta property="og:title" content="BuzzPartners｜SNS運用代行・TikTok・Instagram集客専門" />
+        <meta name="keywords" content="buzzpartners,バズパートナーズ,SNS運用代行 全国対応,TikTok運用代行,Instagram運用代行,YouTube運用代行,SNS集客,コンテンツ制作,動画編集,SNS運用,SNSマーケティング,オンライン SNS代行,企業SNS運用,buzzpartners 評判,バズる,SNS運用のプロフェッショナル,SNSコンサルティング,東京 大阪 名古屋 愛知 福岡 長野 沖縄 SNS運用,全国 SNS代行" />
+        <meta property="og:title" content="Buzzpartners｜SNS運用代行・TikTok・Instagram集客専門" />
         <meta property="og:description" content="話題の『あの会社』へ、今日から一緒に。企画・撮影から編集まで一貫したSNS運用代行サービス。TikTok・Instagram・YouTube運用で圧倒的な実績を誇るBuzz Partnersにお任せください。" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.buzzpartners.jp/" />
@@ -73,11 +73,11 @@ export default function Home() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "BuzzPartners",
+              "name": "Buzzpartners",
               "description": "全国対応のSNS運用代行・TikTok・Instagram・YouTube集客専門サービス。オンラインで全国どこでもサポート",
               "url": "https://www.buzzpartners.jp/",
-              "telephone": "03-1234-5678",
-              "email": "contact@Buzz-prt.com",
+              "telephone": "03-6454-0000",
+              "email": "info@buzzpartners.jp",
               "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "JP",

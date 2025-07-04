@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import PrivacyModal from './PrivacyModal'
 
 
 
@@ -220,15 +219,13 @@ const ContactForm = () => {
         <div className="mt-12 text-center text-gray-600 text-sm">
           お送りいただいた個人情報は、お問い合わせへの回答のみに利用し、
           <br />
-          適切に管理いたします。詳しくは
-          <a href="#Footer" className="hover:text-primary-red hover:underline transition-all duration-300">プライバシーポリシー</a>
-          をご確認ください。
+          適切に管理いたします。詳しくはプライバシーポリシーをご確認ください。
         </div>
 
         {/* 成功・エラーメッセージ表示 */}
         {submitStatus === 'success' && (
           <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
-            お問い合わせありがとうございます。24時間以内にご連絡いたします。
+            お問い合わせありがとうございます。内容を確認後ご連絡いたします。
           </div>
         )}
         
