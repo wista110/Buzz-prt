@@ -2,17 +2,27 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// レート制限やスパム対策（オプション）
+const isValidEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
   try {
-    const { name, email, company, message } = req.body;
+    const { name, email, company, phone, inquiryType, message } = req.body;
     
-    // 入力値の検証
-    if (!name || !email || !message) {
-      return res.status(400).json({ message: '全ての項目を入力してください' });
+    // 入力値の検証強化
+    if (!name || !email || !inquiryType) {
+      return res.status(400).json({ message: '必須項目を入力してください' });
+    }
+
+    if (!isValidEmail(email)) {
+      return res.status(400).json({ message: '有効なメールアドレスを入力してください' });
     }
 
     const { data, error } = await resend.emails.send({
@@ -23,9 +33,11 @@ export default async function handler(req, res) {
         <h2>新しいお問い合わせが届きました</h2>
         <p><strong>お名前：</strong> ${name}</p>
         <p><strong>メールアドレス：</strong> ${email}</p>
-        <p><strong>会社名：</strong> ${company}</p>
+        <p><strong>会社名：</strong> ${company || '未記入'}</p>
+        <p><strong>電話番号：</strong> ${phone || '未記入'}</p>
+        <p><strong>お問い合わせ種別：</strong> ${inquiryType}</p>
         <p><strong>メッセージ：</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
+        <p>${message ? message.replace(/\n/g, '<br>') : '未記入'}</p>
       `
     });
 
@@ -35,6 +47,7 @@ export default async function handler(req, res) {
 
     res.status(200).json({ message: 'メールが送信されました' });
   } catch (error) {
+    console.error('Contact form error:', error);
     res.status(500).json({ error: 'メール送信に失敗しました' });
   }
 } 
