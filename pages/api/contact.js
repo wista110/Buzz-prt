@@ -1,5 +1,18 @@
 import { Resend } from 'resend';
 
+// 環境変数の存在を最初にチェック
+console.log('=== Environment Variables Debug ===');
+console.log('RESEND_API_KEY exists:', !!process.env.RESEND_API_KEY);
+console.log('RESEND_API_KEY value:', process.env.RESEND_API_KEY ? 'Set (hidden)' : 'Not set');
+console.log('RESEND_FROM_EMAIL:', process.env.RESEND_FROM_EMAIL);
+console.log('RESEND_TO_EMAIL:', process.env.RESEND_TO_EMAIL);
+console.log('All env vars containing RESEND:', Object.keys(process.env).filter(key => key.includes('RESEND')));
+
+// 環境変数が設定されていない場合のエラーハンドリング
+if (!process.env.RESEND_API_KEY) {
+  console.error('RESEND_API_KEY is not set in environment variables');
+}
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // レート制限やスパム対策（オプション）
