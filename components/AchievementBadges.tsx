@@ -127,14 +127,14 @@ const AchievementBadges = () => {
           ))}
         </div>
 
-        {/* 追加の説明テキスト */}
+        {/* 追加の説明テキスト
         <div className={`text-center mt-12 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
             多くの企業様に信頼され、継続的にご利用いただいている実績があります。
             <br className="hidden md:block" />
             あなたのビジネスも次のサクセスストーリーにしませんか？
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   )

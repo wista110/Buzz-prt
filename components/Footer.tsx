@@ -34,7 +34,7 @@ const Footer = () => {
           {/* フッター下部 */}
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-300 text-sm">
-              © 2024 Buzz-partners株式会社. All rights reserved.
+              © 2024 株式会社FitzRoy. All rights reserved.
             </div>
             <div className="flex flex-wrap justify-center md:justify-end gap-6 text-gray-300 text-sm mt-4 md:mt-0">
               <button 
