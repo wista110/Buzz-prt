@@ -218,7 +218,7 @@ const UseCases = () => {
             </span>
           </h2>
           <p className={`text-lg md:text-xl text-gray-600 max-w-2xl mx-auto ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            実際にBuzz Partnersをご利用いただいたお客様の成功事例
+            実際にBuzz Partnersをご利用いただいたお客様の事例
           </p>
           <div className={`w-24 h-1 bg-gradient-main mx-auto rounded-full mt-4 md:mt-6 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}></div>
         </div>
